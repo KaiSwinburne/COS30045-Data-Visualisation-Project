@@ -67,7 +67,7 @@ d3.csv("../datasets/grouped_bar_chart.csv", d => ({
     updated_data = updateData(data, "grouped_bar");
     drawBarChart(updated_data);
 
-    //listen for changes in selections
+    //listen for changes in selectionss
     d3.selectAll("#detection-method-bars").on("change", function() {
         const updated_data = updateData(data, "grouped_bar");
         drawBarChart(updated_data);
