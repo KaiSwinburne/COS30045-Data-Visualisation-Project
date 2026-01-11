@@ -1,5 +1,5 @@
 //load line chart data
-d3.csv("../data/line_chart.csv", d => {
+d3.csv("../datasets/line_chart.csv", d => {
     return{
         year: +d["YEAR"],
         jurisdiction: d["JURISDICTION"],
@@ -28,7 +28,7 @@ d3.csv("../data/line_chart.csv", d => {
 });
 
 //load heatmap
-d3.csv("../data/heatmap.csv", d => {
+d3.csv("../datasets/heatmap.csv", d => {
     return{
         jurisdiction: d["JURISDICTION"],
         age_group: d["AGE_GROUP"],
@@ -53,7 +53,7 @@ d3.csv("../data/heatmap.csv", d => {
     console.log("Error loading heatmap csv file: ", error);
 });
 
-d3.csv("../data/grouped_bar_chart.csv", d => ({
+d3.csv("../datasets/grouped_bar_chart.csv", d => ({
     jurisdiction: d["JURISDICTION"],
     age_group: d["AGE_GROUP"],
     detection: d["DETECTION_METHOD"],
@@ -67,7 +67,7 @@ d3.csv("../data/grouped_bar_chart.csv", d => ({
     updated_data = updateData(data, "grouped_bar");
     drawBarChart(updated_data);
 
-    //listen for changes in selections
+    //listen for changes in selectionss
     d3.selectAll("#detection-method-bars").on("change", function() {
         const updated_data = updateData(data, "grouped_bar");
         drawBarChart(updated_data);
